@@ -6,16 +6,16 @@ def form(stroka):
     b = list()
     for i in stroka.split():
         b.append(int(i))
-    b.sort(reverse=1)
+    b.sort()
     # squares = list()
-    for i in range(1, int((2 * b[0] - 1) ** 0.5) + 1):
+    for i in range(1, int((2 * b[len(b)-1] - 1) ** 0.5) + 1):
         squares.append(i ** 2)
-    matr = [[0 for i in range(len(b) + 1)] for j in range(len(b))]
-
+    matr = [[1 if i + j in squares and i != j else 0 for j in b] for i in b]
     print(b)
     print(squares)
     print(len(b))
-    print(matr)
-
+    for i in range (len(b) ):
+        print(matr [i])
+    return matr
 
 form(a)
